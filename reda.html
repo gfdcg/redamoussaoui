@@ -1,0 +1,72 @@
+
+# redamoussaoui
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Photo Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 200px;
+      height: 150px;
+      border: 2px solid #ccc;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .gallery img:focus,
+    .gallery img:hover {
+      outline: none;
+      transform: scale(1.1);
+      border-color: #007BFF;
+    }
+  </style>
+</head>
+<body onload="initializeGallery()">
+  <h1>My Interactive Photo Gallery</h1>
+  <div class="gallery">
+    <img src="image1.jpg" alt="A beautiful sunrise" tabindex="0">
+    <img src="image2.jpg" alt="A serene beach" tabindex="0">
+    <img src="image3.jpg" alt="A vibrant cityscape at night" tabindex="0">
+    <img src="image4.jpg" alt="A peaceful forest" tabindex="0">
+    <img src="image5.jpg" alt="A majestic mountain range" tabindex="0">
+    <img src="image6.jpg" alt="A colorful garden" tabindex="0">
+  </div>
+
+  <script>
+    // Function to initialize the gallery
+    function initializeGallery() {
+      console.log("Gallery loaded and initialized.");
+      
+      // Select all images in the gallery
+      const images = document.querySelectorAll(".gallery img");
+
+      // Add event listeners for keyboard and mouse events
+      images.forEach((image) => {
+        image.addEventListener("mouseover", () => {
+          image.style.transform = "scale(1.1)";
+        });
+        image.addEventListener("mouseleave", () => {
+          image.style.transform = "scale(1)";
+        });
+        image.addEventListener("focus", () => {
+          image.style.borderColor = "#007BFF";
+        });
+        image.addEventListener("blur", () => {
+          image.style.borderColor = "#ccc";
+        });
+      });
+    }
+  </script>
+</body>
+</html>
